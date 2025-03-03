@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad 316 | Battlefield 2042</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Основной фон */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('static/background.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #ff6b00; /* Оранжевый, как в Battlefield */
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Навигационное меню */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #ff6b00;
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        /* Разделы */
+        section {
+            padding: 50px 20px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeInText 1s ease-in-out;
+        }
+
+        /* Для блока новостей */
+        .news-container {
+            margin-top: 20px;
+        }
+
+        .news-container article {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .news-container h3 {
+            font-size: 1.6rem;
+            color: #ff6b00;
+        }
+
+        .news-container p {
+            font-size: 1.2rem;
+        }
+
+        /* Контакты */
+        .contact-info {
+            font-size: 1.2rem;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: #ff6b00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: text-decoration 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info p {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Присоединиться */
+        .join-us {
+            background: #00aaff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .join-us:hover {
+            background: #0088cc;
+            transform: scale(1.1);
+        }
+
+        /* О нас */
+        .about-us {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: white;
+            line-height: 1.8;
+        }
+
+        .about-us p {
+            margin: 10px 0;
+        }
+
+        /* Стили для футера */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        footer a {
+            color: #ff6b00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Мобильная адаптивность */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            section {
+                padding: 30px 15px;
+            }
+
+            .join-us {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-info a {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <h1>Squad 316</h1>
+        <nav>
+            <a href="#" onclick="showSection('news')">Новости</a>
+            <a href="#" onclick="showSection('about')">О нас</a>
+            <a href="#" onclick="showSection('contact')">Контакты</a>
+            <a href="#" onclick="showSection('join')">Присоединиться</a>
+        </nav>
+    </header>
+
+    <!-- Раздел новостей -->
+    <section id="news" class="active">
+        <h2>Новости</h2>
+        <div class="news-container">
+            <article>
+                <h3>8.03.2025 - Базовые учения</h3>
+                <p>Отработка основных тактик и стратегий.</p>
+            </article>
+            <article>
+                <h3>9.03.2025 - Полные учения</h3>
+                <p>Полный боевой сценарий с координацией команды.</p>
+            </article>
+            <article>
+                <h3>15.03.2025 - СВО</h3>
+                <p>Специальная военная операция с максимальным уровнем сложности.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Раздел о нас -->
+    <section id="about">
+        <h2>О нас</h2>
+        <div class="about-us">
+            <p>Squad 316 - это команда профессионалов, объединённых целью стать лучшими в Battlefield 2042. Мы практикуем командную работу, совершенствуем стратегии и участвуем в еженедельных тренировках. Если ты ищешь сильную команду, которая готова к любым вызовам, то ты попал по адресу!</p>
+        </div>
+    </section>
+
+    <!-- Раздел контактов -->
+    <section id="contact">
+        <h2>Контакты</h2>
+        <div class="contact-info">
+            <p>Связаться с нами можно через Discord:</p>
+            <a href="https://discord.com/users/david12345745" target="_blank">david12345745</a>
+            <a href="https://discord.com/users/s3nsai_sayzy" target="_blank">s3nsai_sayzy</a>
+        </div>
+    </section>
+
+    <!-- Присоединиться -->
+    <section id="join">
+        <h2>Присоединиться к нам</h2>
+        <a href="https://discord.gg/z9SjCV62nb" class="join-us">Присоединиться в Discord</a>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2025 Squad 316. Все права защищены.</p>
+        <p><a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Скрыть все секции
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Показать выбранную секцию
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
